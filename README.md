@@ -176,7 +176,7 @@ entries() // 相当于 Object.entries()
 另外是 7 个内置的扩展方法。
 
 ```js
-set()     // 就是 vue 实例上的 mv.$vue
+set()     // 就是 vue 实例上的 mv.$set
 del()     // 就是 vue 实例上的 mv.$delete
 ```
 
