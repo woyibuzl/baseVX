@@ -98,7 +98,6 @@ export let vx = function (...args) {
 function mutation(state, payload) {
   const [data, options] = payload
   const {path} = options
-  console.log(data)
   data.forEach(({method, values}) => {
     tailspin(state, path, function (o, key)  {
       if (['keys', 'values', 'entries'].includes(method)) {

@@ -24,13 +24,17 @@ describe('mutator', () => {
 
 describe('custom', () => {
   it('#set', () => {
-    vx('custom.set').set(2)
-    expect(store.state.custom.set).deep.equal(2)
+    vx('custom.set[0]').set(2)
+    expect(store.state.custom.set).deep.equal([2, 2])
+    vx('custom.set').set(2, 3)
+    expect(store.state.custom.set).deep.equal([2, 2, 3])
   })
 
   it('#del', () => {
     vx('custom.del[1]').del()
     expect(store.state.custom.del).deep.equal([1])
+    vx('custom.del').del(0)
+    expect(store.state.custom.del).deep.equal([])
   })
 
   it('#decrease', () => {

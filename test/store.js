@@ -47,7 +47,7 @@ let store =  baseVX.Store({
       b: 2
     },
     custom: {
-      set: 1,
+      set: [1, 2],
       del: [1, 2],
       increase: 1,
       decrease: 1,
