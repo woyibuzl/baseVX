@@ -78,7 +78,8 @@ export let proxies = {
 
 
 function set(o, key, ...values) {
-  $set(o, key, ...values)
+  if (values.length === 1) $set(o, key, values[0])
+  else if (values.length === 2) $set(o[key], values[0], values[1])
 }
 
 function del(o, key, ...values) {
