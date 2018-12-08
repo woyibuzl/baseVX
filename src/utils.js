@@ -82,8 +82,12 @@ function set(o, key, ...values) {
   else if (values.length === 2) $set(o[key], values[0], values[1])
 }
 
-function del(o, key, ...values) {
-  $delete(o, key, ...values)
+function del(o, key, i) {
+  if (i == null) {
+    $delete(o, key)
+  } else {
+    $delete(o[key], i)
+  }
 }
 
 function increase(o, key, n) {
