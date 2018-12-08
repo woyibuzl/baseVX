@@ -216,8 +216,13 @@ q((value, key, o) => o[key] = 1)
 
 baseVX 还提供了扩展内置方法的接口，让你既轻松又足够自由的增强 vx 的能力。
 
+**注意，你必须在实例化 baseVX.Store 之前扩展内置方法**
+
 ```js
 // store.js
+
+import baseVX from 'base-vx'
+const {add, only} baseVX
 
 // 比如，扩展一个让数组中所有元素加 n 的方法
 // 第一参数是方法名
@@ -232,7 +237,7 @@ add('increaseAll', function (o, key, n = 1) {
 
 这里，演示了一个与最著名的第三方工具库 lodash 的无缝衔接。
 
-**注意，你必须在实例化 baseVX.Store 之前扩展内置方法**
+
 
 ```js
 // store.js
