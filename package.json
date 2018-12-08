@@ -1,9 +1,9 @@
 {
   "name": "base-vx",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "baseVX 是一个基于 vuex 状态管理，它只关注一件事让你以最轻量的代码最简单的方式使用状态管理通信 vue 组件。",
   "main": "dist/base-vx.cjs.min.js",
-  "module": "src/index.js",
+  "module": "dist/base-vx.es.min.js",
   "author": {
     "name": "夜是美"
   },
