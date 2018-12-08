@@ -51,6 +51,7 @@ export default class BaseVX {
 
   commit () {
     stores.commit(BaseVX.defaults.interiorKey, [this.options._chainCallData, this.options])
+    this.options._chainCallData = []
     return this
   }
 
@@ -97,6 +98,7 @@ export let vx = function (...args) {
 function mutation(state, payload) {
   const [data, options] = payload
   const {path} = options
+  console.log(data)
   data.forEach(({method, values}) => {
     tailspin(state, path, function (o, key)  {
       if (['keys', 'values', 'entries'].includes(method)) {
@@ -104,6 +106,7 @@ function mutation(state, payload) {
         return
       }
       const tag = getTag(method)
+      
       // if (tag === 'custom') {
       //   // 自定义方法
       //   // 为了区分 mutator 和 accessor
@@ -115,7 +118,7 @@ function mutation(state, payload) {
       //   if (_targetData === JSON.stringify(o[key]) && data) o[key] = data
       //   return
       // }
-
+      
       switch (tag) {
         case 'mutator':
           o[key][method](...values)
@@ -129,15 +132,5 @@ function mutation(state, payload) {
     })
   })
 }
-
-
-// export const {
-//   reateNamespacedHelpers,
-//   mapActions,
-//   mapGetters,
-//   mapMutations,
-//   mapState,
-//   install
-// } = BaseVX.only(BaseVX._vuex, 'reateNamespacedHelpers mapActions mapActions mapGetters mapMutations mapState install')
 
 export const version = '0.0.1'
